@@ -1,0 +1,8 @@
+<h1>Paste your JSON Below</h1>
+<textarea id= "json"></textarea> <p></p>
+<button> Submit </button> <p></p>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<%= button_to 'Add to Cart', { :controller => "home", :action => "json_to_html" }, remote: true %>
+<div id= "time_div"></div>
