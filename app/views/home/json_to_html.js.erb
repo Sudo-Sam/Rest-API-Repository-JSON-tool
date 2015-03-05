@@ -1,7 +1,6 @@
 var1 = $("#json").val();
 res = "";
 $("#time_div").html("");
-var2=res.concat("<table border=\"1\"><tr><td>",var1,"</td><tr></table>")
 var request = $.ajax({
     url: '/home/to_html',
     type: 'post',
@@ -9,6 +8,7 @@ var request = $.ajax({
     success: function(jsonResponse){
     if(jsonResponse.status == "200"){
       $("#time_div").html(jsonResponse.html);
+      $("#error_table").html(jsonResponse.error_table);
     }}
   });
 	

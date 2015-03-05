@@ -9,18 +9,20 @@ class HomeController < ApplicationController
   end
   def to_html
     @hash = JSON.parse(params[:json])
-    @html = '<table>'
+    @html = '<table class = "result_table">'
+    @error_table = '<table class = "result_table">'
     @div = ""
-    html, new_line = process_json(@html, @div, @hash)
-    html << '</table>'
+    @error_table, @html, new_line = process_json(@error_table, @html, @div, @hash)
+    @html << '</table>'
+    @error_table << '</table>'
     respond_to do |format|
-      format.json { render :json => {:status => "200", :html => html}.to_json }
+      format.json { render :json => {:status => "200", :html => @html, :error_table => @error_table}.to_json }
     end
   end 
   
   
-  def process_json(html, div, data, new_line = true)
-  html << '<table border=1 style=\"width:100%\">'
+  def process_json(error_table, html, div, data, new_line = true)
+  html << '<table class = "result_table">'
   klass = data.class
   div_incoming = div.dup
   case
@@ -33,21 +35,27 @@ class HomeController < ApplicationController
       if value.class == Hash then
         div << ".#{key}"
         html << "<td>"
-        html, new_line =   process_json(html, div, value, true)  
+        error_table, html, new_line =   process_json(error_table, html, div, value, true)  
         html << "</td>"
         div = div_incoming.dup
       elsif value.class == Array then
         html << "<td>"
         value.each do |arr_data|
           div << ".#{key}"
-          html, new_line =   process_json(html, div, arr_data, true) 
+          error_table, html, new_line =   process_json(error_table, html, div, arr_data, true) 
           div = div_incoming.dup
         end
         html << "</td>"
       else
           div << ".#{key}"
-           #json_attr=Json_attribute.new("#{div}","#{value}")
-           html << "<td width=\"70%\" title=\"#{div}\" div=\"#{div}\" bgcolor=\"FFFFFF\">#{value}</td>"
+           json_attr=Json_attribute.new("#{div}","#{value}")
+           if  json_attr.color != "FFFFFF" then
+             error_table << "<tr>"
+             error_table << "<th>#{div}</th>"
+             error_table << "<td id=\"#{div}\" title=\"#{div}\" onclick = \"someFunction('one')\" bgcolor=\"#{json_attr.color}\">#{value}</td>"
+             error_table << "</tr>"
+           end
+           html << "<td id=\"#{div}\" title=\"#{div}\" onclick = \"someFunction('one')\" bgcolor=\"#{json_attr.color}\">#{value}</td>"
            div = div_incoming.dup
            
       end
@@ -57,7 +65,7 @@ class HomeController < ApplicationController
     end
   end
   html << '</table>'
-  return html, new_line
+  return error_table ,html, new_line
 end
 
 end

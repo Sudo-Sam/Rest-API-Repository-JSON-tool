@@ -1,8 +1,22 @@
 <h1>Paste your JSON Below</h1>
-<textarea id= "json"></textarea> <p></p>
-<button> Submit </button> <p></p>
+<table class="result_table">
+	<th><label>Application</label></th>
+	<td><%=select_tag :country, options_for_select(App_List::appl), { prompt: "Select Application" } %></td>
+	<th><label>Environment</label></th>
+	<td><%=select_tag "list[]", :multiple=>true%></td>
+	<th><label>URI</label></th>
+	<td><%=select_tag "list[]", :multiple=>true%></td>
+	<th><label>Issue Type</label></th>
+	<td><%=select_tag "list[]", :multiple=>true%></td>
+</table>
+<textarea id= "json" rows="20" cols="150"></textarea> <p></p>
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<%= button_to 'Add to Cart', { :controller => "home", :action => "json_to_html" }, remote: true %>
-<div id= "time_div"></div>
+<%= button_to 'Process', { :controller => "home", :action => "json_to_html" }, class: 'wmOrangeButton', remote: true %>
+<%=select_tag "list[]", :multiple=>true%>
+<h1>Validation rules failed</h1>
+<div id= "error_table" class="result_table"></div>
+
+<h1>Processed JSON</h1>
+<div id= "time_div" class="result_table"></div>

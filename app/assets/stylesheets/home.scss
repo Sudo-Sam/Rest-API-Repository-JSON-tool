@@ -1,3 +1,23 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.result_table {
+  margin:0px;padding:0px;
+  align: left;
+  font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  border:1px solid #FFFFFF;
+  -moz-border-radius-bottomleft:14px;
+  -webkit-border-bottom-left-radius:14px;
+  border-bottom-left-radius:14px;
+  -moz-border-radius-bottomright:14px;
+  -webkit-border-bottom-right-radius:14px;
+  border-bottom-right-radius:14px;
+  -moz-border-radius-topright:14px;
+  -webkit-border-top-right-radius:14px;
+  border-top-right-radius:14px;
+  -moz-border-radius-topleft:14px;
+  -webkit-border-top-left-radius:14px;
+  border-top-left-radius:14px;
+}.result_table table{
+    border-collapse: collapse;
+        border-spacing: 0;
+  height:100%;
+  margin:0px;padding:0px;
+}
