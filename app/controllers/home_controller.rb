@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  
   def index
     
   end
@@ -9,6 +10,7 @@ class HomeController < ApplicationController
   end
   def to_html
     @hash = JSON.parse(params[:json])
+    logger.info params[:app_name]
     @html = '<table class = "result_table">'
     @error_table = '<table class = "result_table">'
     @div = ""

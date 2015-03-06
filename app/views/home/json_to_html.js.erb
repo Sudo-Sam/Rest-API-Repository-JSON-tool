@@ -1,10 +1,11 @@
 var1 = $("#json").val();
+var2 = $("#application option:selected").text();
 res = "";
 $("#time_div").html("");
 var request = $.ajax({
     url: '/home/to_html',
     type: 'post',
-    data: $.param({ json: var1 }),
+    data: $.param({ json: var1, app_name: var2 }),
     success: function(jsonResponse){
     if(jsonResponse.status == "200"){
       $("#time_div").html(jsonResponse.html);
