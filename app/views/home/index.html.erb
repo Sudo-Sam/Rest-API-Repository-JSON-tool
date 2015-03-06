@@ -1,7 +1,7 @@
 <h1>Paste your JSON Below</h1>
 <table class="result_table">
 	<th><label>Application</label></th>
-	<td><%=select_tag :country, options_for_select(App_List::appl), { prompt: "Select Application" } %></td>
+	<td><%=select_tag "list[]", { prompt: "Select Application" } %></td>
 	<th><label>Environment</label></th>
 	<td><%=select_tag "list[]", :multiple=>true%></td>
 	<th><label>URI</label></th>
@@ -14,7 +14,6 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 <%= button_to 'Process', { :controller => "home", :action => "json_to_html" }, class: 'wmOrangeButton', remote: true %>
-<%=select_tag "list[]", :multiple=>true%>
 <h1>Validation rules failed</h1>
 <div id= "error_table" class="result_table"></div>
 

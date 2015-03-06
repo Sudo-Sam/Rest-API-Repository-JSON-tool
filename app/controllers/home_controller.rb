@@ -29,17 +29,17 @@ class HomeController < ApplicationController
   when klass == Hash
     data.each do |key, value|
       if new_line == true then
-      html << "<tr>"
+      html << "<tr class = \"result_table\">"
       end
-      html << "<th>#{key}</th>"
+      html << "<th class = \"result_table\">#{key}</th>"
       if value.class == Hash then
         div << ".#{key}"
-        html << "<td>"
+        html << "<td class = \"result_table\">"
         error_table, html, new_line =   process_json(error_table, html, div, value, true)  
         html << "</td>"
         div = div_incoming.dup
       elsif value.class == Array then
-        html << "<td>"
+        html << "<td class = \"result_table\">"
         value.each do |arr_data|
           div << ".#{key}"
           error_table, html, new_line =   process_json(error_table, html, div, arr_data, true) 
@@ -50,12 +50,12 @@ class HomeController < ApplicationController
           div << ".#{key}"
            json_attr=Json_attribute.new("#{div}","#{value}")
            if  json_attr.color != "FFFFFF" then
-             error_table << "<tr>"
-             error_table << "<th>#{div}</th>"
-             error_table << "<td id=\"#{div}\" title=\"#{div}\" onclick = \"someFunction('one')\" bgcolor=\"#{json_attr.color}\">#{value}</td>"
+             error_table << "<tr class = \"result_table\">"
+             error_table << "<th class = \"result_table\">#{div}</th>"
+             error_table << "<td class = \"result_table\" id=\"#{div}\" title=\"#{div}\" onclick = \"someFunction('one')\" bgcolor=\"#{json_attr.color}\">#{value}</td>"
              error_table << "</tr>"
            end
-           html << "<td id=\"#{div}\" title=\"#{div}\" onclick = \"someFunction('one')\" bgcolor=\"#{json_attr.color}\">#{value}</td>"
+           html << "<td class = \"result_table\" id=\"#{div}\" title=\"#{div}\" onclick = \"someFunction('one')\" bgcolor=\"#{json_attr.color}\">#{value}</td>"
            div = div_incoming.dup
            
       end
