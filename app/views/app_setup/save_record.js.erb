@@ -1,0 +1,15 @@
+var1 = $("#app_name").val();
+var7 = $("#uri_desc").val();
+var2 = $('input[name="environment"]:checked').val()
+var3 = $('input[name="rest_method"]:checked').val()
+var4 = $("#uri").val();
+var5 = $("#req_hdr").val();
+var6 = $("#req_json").val();
+var request = $.ajax({
+    url: '/application_details/',
+    type: 'post',
+    data: $.param({application_detail:{name:var1, uri_desc:var7,environment:var2, rest_method:var3, uri:var4, request_hdr:var5, request_text:var6}})
+
+  });
+	
+

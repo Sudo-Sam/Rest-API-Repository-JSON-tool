@@ -1,0 +1,40 @@
+<%= form_for(@application_detail) do |f| %>
+  <% if @application_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@application_detail.errors.count, "error") %> prohibited this application_detail from being saved:</h2>
+
+      <ul>
+      <% @application_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :environment %>
+    <%= f.text_field :environment %>
+  </div>
+  <div class="field">
+    <%= f.label :rest_method %>
+    <%= f.text_field :rest_method %>
+  </div>
+  <div class="field">
+    <%= f.label :uri %>
+    <%= f.text_area :uri %>
+  </div>
+  <div class="field">
+    <%= f.label :request_hdr, :class =>"navbar-form navbar-left" %>
+    <%= f.text_area :request_hdr %>
+  </div>
+  <div class="field">
+    <%= f.label :request_text %>
+    <%= f.text_area :request_text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

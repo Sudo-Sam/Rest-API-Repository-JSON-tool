@@ -1,0 +1,33 @@
+<p id="notice">
+	<%= notice %>
+</p>
+
+	<strong>Name:</strong>
+	<%= @application_detail.name %>
+<p>
+	<strong>Environment:</strong>
+	<%= @application_detail.environment %>
+</p>
+
+<p>
+	<strong>Rest method:</strong>
+	<%= @application_detail.rest_method %>
+</p>
+
+<p>
+	<strong>Uri:</strong>
+	<%= @application_detail.uri %>
+</p>
+
+<p>
+	<strong>Request hdr:</strong>
+	<%= @application_detail.request_hdr %>
+</p>
+
+<p>
+	<strong>Request text:</strong>
+	<%= @application_detail.request_text %>
+</p>
+
+<%= link_to 'Edit', edit_application_detail_path(@application_detail) %> |
+<%= link_to 'Back', application_details_path %>
