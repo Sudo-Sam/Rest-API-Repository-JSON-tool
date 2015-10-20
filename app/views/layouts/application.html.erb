@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JSonToHtml</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+		<title>JSonToHtml</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<nav class="navbar-default" role="navigation">
+			<div class="container-fluid">
+				<span class="navbar navbar-header">JSON - One tool to rule them all</span>
+			</div>
+		</nav>
+		<div class="container">
+			<%= yield %>
+		</div >
+		<div class="appcontainer text-center">
+			<footer>
+				<hr>
+				<p>
+					© Sudo 
+				</p>
+			</footer>
+		</div>
 
-<%= yield %>
-
-</body>
+	</body>
 </html>

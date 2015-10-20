@@ -1,21 +1,31 @@
-<h1>JSON Parse and Validate</h1>
-<table class="result_table">
-	<th><label>Application</label></th>
-	<td><%=select_tag :application , options_for_select(Home_Constants::APPL), prompt:"Select the application" %></td>
-	<th><label>Environment</label></th>
-	<td><%=select_tag "list[]", :multiple=>true%></td>
-	<th><label>URI</label></th>
-	<td><%=select_tag "list[]", :multiple=>true%></td>
-	<th><label>Issue Type</label></th>
-	<td><%=select_tag "list[]", :multiple=>true%></td>
-</table>
-<textarea id= "json" rows="20" cols="150"></textarea> <p></p>
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-<%= button_to 'Process', { :controller => "home", :action => "json_to_html" }, class: 'wmOrangeButton', remote: true %>
-<h1>Validation rules failed</h1>
-<div id= "error_table" class="result_table"></div>
+<div id="main-container">
+	<a id="menu-toggler" href="#" class=""> <span></span> </a>
+	<div class="clearfix" id="main-content">
+		<div class = "container">
+			<div class = "bs-docs-header text-center">
+				<h1>JSON Parse and Validate</h1>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="comment">Paste your JSON below:</label>
+			<textarea class="form-control" rows="10" id="json"></textarea>
+		</div>
 
-<h1>Processed JSON</h1>
-<div id= "time_div" class="result_table"></div>
+		<td><%= button_to 'Process', {:controller => "home", :action => "json_to_html" }, class: "btn btn-danger btn-lg", remote: true %></td>
+
+		<div class = "panel panel-danger">
+			<h1 class = "panel-heading">Validation rules failed</h1>
+			<div id= "error_table" class="table-responsive">
+
+			</div>
+		</div>
+
+		<div class = "panel panel-info">
+			<h1 class = "panel-heading">Processed JSON</h1>
+			<div style = "height:500px">
+				<div id= "time_div" class="panel table" style="height:100%; overflow: auto; position:relative;"></div>
+			</div>
+		</div>
+
+	</div>
+</div>

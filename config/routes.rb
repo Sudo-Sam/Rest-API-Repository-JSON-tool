@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :application_details
+
+  get 'app_setup/create'
+
+  get 'app_setup/edit'
+
+  get 'app_setup/delete'
+
   get 'home/index'
   get '/home/test' => redirect("http://localhost:3001/")
 
@@ -14,6 +22,9 @@ Rails.application.routes.draw do
     post :to_html, on: :collection
   end
   post '/home/json_to_html' => 'home#json_to_html', as: :json_to_html_path
+  post '/app_setup/save_record' => 'app_setup#save_record', as: :save_app_setup_path
+  post '/app_setup/test_Conn' => 'app_setup#test_Conn'
+  post '/application_details/test_Conn' => "application_details#test_Conn", as: :test_conn_path
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
