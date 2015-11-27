@@ -69,6 +69,6 @@ class RulesEnginesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rules_engine_params
-      params.require(:rules_engine).permit(:name, :attribute, :operator, :value, :color)
+      params.require(:rules_engine).permit(:name, :json_attribute, :operator, :value, :color)
     end
 end

@@ -60,12 +60,18 @@
 	<p></p>
 	<div class = "row">
 		<div class = "col-md-3"></div>
-		<%= button_to_with_icon("<i class='fa fa-binoculars fa-lg'></i> TEST", {:controller => "app_setup", :action => "test_Conn" }, class: "btn btn-info col-md-1 control-group", remote: true) %> 
+		<%= button_to_with_icon("<i class='fa fa-binoculars fa-lg'></i> TEST", {:controller => "app_setup", :action => "test_Conn" }, class: "btn btn-info col-md-1 control-group", id: "test_button", remote: true) %> 
 		<div class = "col-md-3"></div>
-		<%= button_to_with_icon("SAVE <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i>" , {:controller => "app_setup",  :action => "save_record" }, class: "btn btn-primary col-md-1 control-group", remote: true) %>
+		<%= button_to_with_icon("SAVE <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i>" , {:controller => "app_setup",  :action => "save_record" }, class: "btn btn-primary col-md-1 control-group", id: "save_button", remote: true) %>
 	</div>
 </div>
 <div style = "height:500px">
 	<div id= "time_div" class="panel table" style="height:100%; overflow: auto; position:relative;"></div>
 </div>
 </div>
+<script>
+	if(window.location.pathname == "/JSON_PORTAL/RestAPI/"){
+			$('#save_button').hide();
+			$('#test_button').html('Send');
+		};
+</script>
