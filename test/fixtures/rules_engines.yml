@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  attribute: MyText
+  operator: MyString
+  value: MyString
+  color: MyString
+
+two:
+  name: MyString
+  attribute: MyText
+  operator: MyString
+  value: MyString
+  color: MyString

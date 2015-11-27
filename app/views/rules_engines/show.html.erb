@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rules_engine.name %>
+</p>
+
+<p>
+  <strong>Attribute:</strong>
+  <%= @rules_engine.attribute %>
+</p>
+
+<p>
+  <strong>Operator:</strong>
+  <%= @rules_engine.operator %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @rules_engine.value %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @rules_engine.color %>
+</p>
+
+<%= link_to 'Edit', edit_rules_engine_path(@rules_engine) %> |
+<%= link_to 'Back', rules_engines_path %>

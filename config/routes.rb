@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :rules_engines
+
   resources :application_details
 
   get 'app_setup/create'
