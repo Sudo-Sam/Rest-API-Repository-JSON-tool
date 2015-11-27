@@ -1,33 +1,33 @@
 <p id="notice">
 	<%= notice %>
 </p>
-
-<h1>Listing REST URL Details</h1>
-<div class = "table-responsive table-bordered">
-	<table class = "table table-striped table-condensed">
+	
+<div id = "index_div">
+	<table class = "table-striped table-condensed table-bordered">
 		<thead>
 			<tr>
+				<th colspan="2"></th>
 				<th>Name</th>
 				<th>Environment</th>
 				<th>Rest method</th>
 				<th>Uri</th>
 				<th>Request hdr</th>
 				<th>Request text</th>
-				<th colspan="3"></th>
+				<th colspan="1"></th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @application_details.each do |application_detail| %>
 			<% logger.info @application_details.name.to_str  %>
 			<tr>
+				<td><%= link_to 'Show', application_detail %></td>
+				<td><%= link_to 'Edit', edit_application_detail_path(application_detail) %></td>
 				<td><%= application_detail.name %></td>
 				<td><%= application_detail.environment %></td>
 				<td><%= application_detail.rest_method %></td>
 				<td><%= application_detail.uri %></td>
 				<td><%= application_detail.request_hdr %></td>
 				<td><%= application_detail.request_text %></td>
-				<td><%= link_to 'Show', application_detail %></td>
-				<td><%= link_to 'Edit', edit_application_detail_path(application_detail) %></td>
 				<td><%= link_to 'Destroy', application_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 			<% end %>

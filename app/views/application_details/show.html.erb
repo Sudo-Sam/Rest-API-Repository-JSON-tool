@@ -1,4 +1,5 @@
-<p id="notice">
+<div class =container>
+	<p id="notice">
 	<%= notice %>
 </p>
 
@@ -29,5 +30,8 @@
 	<%= @application_detail.request_text %>
 </p>
 
-<%= link_to 'Edit', edit_application_detail_path(@application_detail) %> |
+<%= link_to 'Edit' ,edit_application_detail_path(@application_detail) , class: "btn btn-primary" %> |
+<%= link_to "Delete" , @application_detail , method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', application_details_path %>
+
+</div>

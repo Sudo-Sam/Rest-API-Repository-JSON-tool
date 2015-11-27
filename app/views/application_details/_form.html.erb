@@ -1,40 +1,76 @@
 <%= form_for(@application_detail) do |f| %>
-  <% if @application_detail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@application_detail.errors.count, "error") %> prohibited this application_detail from being saved:</h2>
+<% if @application_detail.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@application_detail.errors.count, "error") %> prohibited this application_detail from being saved:</h2>
 
-      <ul>
-      <% @application_detail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :environment %>
-    <%= f.text_field :environment %>
-  </div>
-  <div class="field">
-    <%= f.label :rest_method %>
-    <%= f.text_field :rest_method %>
-  </div>
-  <div class="field">
-    <%= f.label :uri %>
-    <%= f.text_area :uri %>
-  </div>
-  <div class="field">
-    <%= f.label :request_hdr, :class =>"navbar-form navbar-left" %>
-    <%= f.text_area :request_hdr %>
-  </div>
-  <div class="field">
-    <%= f.label :request_text %>
-    <%= f.text_area :request_text %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<ul>
+		<% @application_detail.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class = "container container-fluid">
+	<div class = "row">
+		<span class="label label-default col-md-2 fa-lg">Name <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+		<div class="form-group col-md-3">
+			<%= f.text_field :name, :class => "form-control col-md-3" %>
+		</div>
+	</div>
+	<div class = "row">
+		<span class="label label-default col-md-2 fa-lg">Environment <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+		<div class="form-group col-md-2">
+			<div class="container container-fluid btn-group" data-toggle="buttons">
+				<label class="btn btn-primary"> <%= radio_button("application_detail","environment","PROD") %>
+					PROD </label>
+				<label class="btn btn-primary"> <%= radio_button("application_detail","environment","STAGE") %>
+					STAGE </label>
+				<label class="btn btn-primary"> <%= radio_button("application_detail","environment","EBF") %>
+					EBF </label>
+			</div>
+		</div>
+	</div>
+	<div class = "row">
+		<span class="label label-default col-md-2 fa-lg">Method <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+		<div class="form-group col-md-2">
+			<div class="container container-fluid btn-group" data-toggle="buttons">
+				<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","GET") %>
+					GET </label>
+				<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","PUT") %>
+					PUT </label>
+				<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","POST") %>
+					POST </label>
+				<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","DELETE") %>
+					DELETE </label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<span class="label label-default col-md-2 fa-lg">URI <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+		<div class="form-group col-md-10">
+			<%= f.text_area :uri, :class => "form-control", :rows=>1 %>
+		</div>
+	</div>
+	<div class="row form-group">
+		<span class="label label-default col-md-2 fa-lg">Header <i class='fa fa-chevron-down fa-lg'></i><i class='fa fa-chevron-down fa-5'></i></span>
+		<span class= "col-md-4"></span>
+		<span class="label label-default col-md-2 fa-lg">Request JSON <i class='fa fa-chevron-down fa-lg'></i><i class='fa fa-chevron-down fa-5'></i></span>
+	</div>
+	<div class="row">
+		<div class="form-group col-md-6">
+			<%= f.text_area :request_hdr , :class =>"form-control col-md-5" , :rows=>10 %>
+		</div>
+		<div class="form-group col-md-6">
+			<%= f.text_area :request_text , :class =>"form-control col-md-5" , :rows=>10 %>
+		</div>
+	</div>
+
+	<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+	<i class="icon-ok icon-white fa fa-save fa-lg "></i> Save
+	<% end %>
+</div>
+</div>
+<script>	$(':input:checked').parent().addClass('active');</script>
 <% end %>

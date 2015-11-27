@@ -1,3 +1,17 @@
 // Place all the styles related to the application_details controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table
+{
+    width: 100%;
+}
+table.auto
+{
+    table-layout:auto;
+}
+table.auto 
+{
+    border: 1px solid black;
+    overflow: hidden;
+    width: 100px;
+}

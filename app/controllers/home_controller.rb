@@ -26,6 +26,7 @@ class HomeController < ApplicationController
   def process_json(error_table, html, div, data, new_line = true)
   html << '<table class="table table-striped header-fixed">'
   klass = data.class
+  logger.info klass
   div_incoming = div.dup
   case
   when klass == Hash
@@ -41,7 +42,7 @@ class HomeController < ApplicationController
         html << "</td>"
         div = div_incoming.dup
       elsif value.class == Array then
-        html << "<td >"
+        html << "<td>"
         value.each do |arr_data|
           div << ".#{key}"
           error_table, html, new_line =   process_json(error_table, html, div, arr_data, true) 
@@ -61,12 +62,27 @@ class HomeController < ApplicationController
            div = div_incoming.dup
            
       end
-            if new_line == true then
-      html << "</tr>"
+      if new_line == true then
+        html << "</tr>"
       end
     end
+    when klass == Array 
+        data.each do |arr_data|
+          if new_line == true then
+            html << "<tr><th>"
+          end
+          html << "<td>"
+          error_table, html, new_line =   process_json(error_table, html, div, arr_data, true) 
+          div = div_incoming.dup
+          html << "</td>"
+        end
+        html << "</td>"
+      if new_line == true then
+        html << "</th></tr>"
+      end
   end
   html << '</table>'
+  logger.info html
   return error_table ,html, new_line
 end
 

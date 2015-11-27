@@ -9,4 +9,10 @@ rules:
     condition: (attr = ".payload.offerWrappers.storeFronts.isStorePUTEligible") and (value = "false")
     priority: 0
     action: color = "FF00FF0"
+
+  -
+    name : 3
+    condition: (attr = ".glossary.title") and (value != "")
+    priority: 0
+    action: color = "FF00FF0"
           

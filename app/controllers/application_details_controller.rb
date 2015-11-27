@@ -22,10 +22,8 @@ class ApplicationDetailsController < HomeController
       end
     end
     request_hdr = "#{request_hdr}}"
-    puts request_hdr
     request_hdr = JSON.parse(request_hdr)
     uri = URI.encode(@application_detail.uri.strip)
-    logger.info @application_detail.rest_method
     @resp = RestClient::Request.execute(
     :method => @application_detail.rest_method,
     :url => uri,
@@ -60,8 +58,7 @@ class ApplicationDetailsController < HomeController
 
     respond_to do |format|
       if @application_detail.save
-        format.html { redirect_to @application_detail, notice: 'Application detail was successfully created.' }
-        format.json { render :show, status: :created, location: @application_detail }
+        format.json { render :json => {:status => "200", :html => @html, :error_table => @error_table, :location=> @application_detail.id }.to_json  }
         format.js { return "Success"}
       else
         format.html { render :new }
@@ -89,7 +86,7 @@ class ApplicationDetailsController < HomeController
   def destroy
     @application_detail.destroy
     respond_to do |format|
-      format.html { redirect_to application_details_url, notice: 'Application detail was successfully destroyed.' }
+      format.html { redirect_to application_details_url, notice: 'Rest URI was successfully deleted.' }
       format.json { head :no_content }
     end
   end
