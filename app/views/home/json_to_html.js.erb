@@ -1,4 +1,5 @@
 var1 = $("#json").val();
+$("#process_tag").addClass('fa-cog fa-spin');
 var2 = $("#application option:selected").text();
 res = "";
 $("#time_div").html("");
@@ -7,9 +8,17 @@ var request = $.ajax({
     type: 'post',
     data: $.param({ json: var1, app_name: var2 }),
     success: function(jsonResponse){
+   	$("#process_tag").removeClass('fa-cog fa-spin');
     if(jsonResponse.status == "200"){
       $("#time_div").html(jsonResponse.html);
       $("#error_table").html(jsonResponse.error_table);
-    }}
+      alert ('json processed successfully');
+    }},
+    error: function(jsonResponse){
+   	$("#process_tag").removeClass('fa-cog fa-spin');
+   	alert ('please check the Json');
+    }
+    
   });
-	
+
+

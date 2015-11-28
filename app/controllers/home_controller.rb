@@ -24,7 +24,7 @@ class HomeController < ApplicationController
   
   
   def process_json(error_table, html, div, data, new_line = true)
-  html << '<table class="table table-striped header-fixed">'
+  html << '<table class="table table-striped table-bordered header-fixed">'
   klass = data.class
   logger.info klass
   div_incoming = div.dup

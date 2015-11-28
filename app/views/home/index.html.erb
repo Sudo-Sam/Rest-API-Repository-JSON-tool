@@ -6,7 +6,7 @@
 			<textarea class="form-control" rows="10" id="json"></textarea>
 		</div>
 
-		<td><%= button_to 'Process', {:controller => "home", :action => "json_to_html" }, class: "btn btn-danger btn-lg", remote: true %></td>
+		<td><%= button_to_with_icon("Process  <i class='fa fa-lg' id='process_tag'></i></i>", {:controller => "home", :action => "json_to_html" }, class: "btn btn-danger btn-lg", id: "process_button", remote: true) %></td>
 
 		<div class = "panel panel-danger">
 			<h1 class = "panel-heading">Validation rules failed</h1>
