@@ -1,29 +1,44 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@rules_engine) do |f| %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @rules_engine.name %>
-</p>
+<div class = "row">
+	<span class="label label-default col-md-2 fa-lg">Name <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+	<div class="form-group col-md-3">
+		<%= f.text_field :name, :class => "form-control col-md-3", disabled: true %>
+	</div>
+</div>
+<div class = "row form-group">
+	<span class="label label-default col-md-2 fa-lg">Rule <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+</div>
+<div class="col-md-3">
+	<%= f.text_field :json_attribute, :class => "form-control col-md-3", :placeholder=>"Attribute"  , disabled: true%>
+</div>
+<div class="col-md-2">
+	<div class="container container-fluid btn-group" data-toggle="buttons">
+		<label class="btn btn-primary"> <%= radio_button("rules_engine","operator","=") %>
+			= </label>
+		<label class="btn btn-primary"> <%= radio_button("rules_engine","operator","!=") %>
+			!= </label>
+	</div>
+</div>
+<div class = "row">
+	<div class="form-group col-md-3">
+		<%= f.text_field :value, :class => "form-control col-md-3", :placeholder=>"value", disabled: true %>
+	</div>
 
-<p>
-  <strong>JSON Attribute:</strong>
-  <%= @rules_engine.json_attribute %>
-</p>
+	<%= f.text_field :color, :class => 'colorpicker', :id=>'color_box' , disabled: true%>
 
-<p>
-  <strong>Operator:</strong>
-  <%= @rules_engine.operator %>
-</p>
+</div>
 
-<p>
-  <strong>Value:</strong>
-  <%= @rules_engine.value %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @rules_engine.color %>
-</p>
-
-<%= link_to 'Edit', edit_rules_engine_path(@rules_engine) %> |
-<%= link_to 'Back', rules_engines_path %>
+<div class="row form-group">
+	<%= link_to 'Edit' ,edit_rules_engine_path(@rules_engine) , class: "control-group btn btn-primary" %>
+	<%= link_to "Delete" , @rules_engine , method: :delete, data: { confirm: 'Are you sure?'} , class: "control-group btn btn-danger"  %>
+	<%= link_to 'Back', rules_engine_path, class: "control-group btn btn-info" %>
+</div>
+<script>
+	$(':input:checked').parent().addClass('active');
+	$(':input:checked').css({
+		'color' : 'red',
+		'font-size' : '150%'
+	}); 
+</script>
+<% end %>

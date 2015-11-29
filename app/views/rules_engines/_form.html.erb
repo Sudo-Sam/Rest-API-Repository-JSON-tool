@@ -1,37 +1,52 @@
 <%= form_for(@rules_engine) do |f| %>
-  <% if @rules_engine.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rules_engine.errors.count, "error") %> prohibited this rules_engine from being saved:</h2>
+<% if @rules_engine.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@rules_engine.errors.count, "error") %> prohibited this rules_engine from being saved:</h2>
 
-      <ul>
-      <% @rules_engine.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :json_attribute %><br>
-    <%= f.text_area :json_attribute %>
-  </div>
-  <div class="field">
-    <%= f.label :operator %><br>
-    <%= f.text_field :operator %>
-  </div>
-  <div class="field">
-    <%= f.label :value %><br>
-    <%= f.text_field :value %>
-  </div>
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<ul>
+		<% @rules_engine.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+		<% end %>
+	</ul>
+</div>
 <% end %>
+<div class = "row">
+	<span class="label label-default col-md-2 fa-lg">Name <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+	<div class="form-group col-md-3">
+		<%= f.text_field :name, :class => "form-control col-md-3" %>
+	</div>
+</div>
+<div class = "row form-group">
+	<span class="label label-default col-md-2 fa-lg">Rule <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+</div>
+<div class="col-md-3">
+	<%= f.text_field :json_attribute, :class => "form-control col-md-3", :placeholder=>"Attribute" %>
+</div>
+<div class="col-md-2">
+	<div class="container container-fluid btn-group" data-toggle="buttons">
+		<label class="btn btn-primary"> <%= radio_button("rules_engine","operator","=") %>
+			= </label>
+		<label class="btn btn-primary"> <%= radio_button("rules_engine","operator","!=") %>
+			!= </label>
+	</div>
+</div>
+<div class = "row">
+	<div class="form-group col-md-3">
+		<%= f.text_field :value, :class => "form-control col-md-3", :placeholder=>"value" %>
+	</div>
+
+	<%= f.text_field :color, :class => 'colorpicker', :id=>'color_box' %>
+
+</div>
+
+<%= button_tag(type: 'submit', class: "btn btn-primary control-group") do %>
+<i class="icon-ok icon-white fa fa-save fa-lg "></i> Save
+<% end %>
+<% end %>
+<script>
+	$(function() {
+		$('.colorpicker').colorpicker();
+	}); 
+</script>

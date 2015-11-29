@@ -7,11 +7,8 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<div class = "hazeWidth">
-			<div class="navbar navbar-inverse navbar-static-top hidden-print">
-				<p class="label">
-					JSON Tool
-				</p>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class = "container">
 				<div class="container">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -73,25 +70,22 @@
 
 								</ul>
 							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-			<div class="microsoft marquee">
-				JSON Tool
-			</div>
+		</nav>
 
-			<div class="container">
-				<%= yield %>
-			</div >
-			<div class="appcontainer text-center">
-				<footer>
-					<hr>
-					<p>
-						© Sudo
-					</p>
-				</footer>
-			</div>
+		<div class="container container-fluid">
+			<%= yield %>
+		</div >
+		<div class="appcontainer text-center">
+			<footer>
+				<hr>
+				<p>
+					© Sudo
+				</p>
+			</footer>
 		</div>
-
 	</body>
 </html>
