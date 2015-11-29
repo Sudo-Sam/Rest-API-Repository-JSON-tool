@@ -6,10 +6,8 @@ var5 = $("#req_hdr").val();
 var6 = $("#req_json").val();
 var_error = '0';
 
-if ((var1 == '') || (var4 == '')){
+if ((var4 == '')){
 var_error = 1;
-if (var1 == ''){$('#app_name').parent().addClass('has-error');
-} else {$('#app_name').parent().removeClass('has-error');}
 if (var4 == ''){$('#uri').parent().addClass('has-error');
 } else {$('#uri').parent().removeClass('has-error');}
 
@@ -25,7 +23,10 @@ if (var_error == '0')
     data: $.param({application_detail:{name:var1, environment:var2, rest_method:var3, uri:var4, request_hdr:var5, request_text:var6}}),
     success: function(jsonResponse){
     if(jsonResponse.status == "200"){
+ 	  $('#result_table').show();
+	  $('#rules_failed').show();
       $("#time_div").html(jsonResponse.html);
+      $("#error_table").html(jsonResponse.error_table);      
     }}
   })
   };
