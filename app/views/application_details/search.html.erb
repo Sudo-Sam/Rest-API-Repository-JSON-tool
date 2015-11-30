@@ -1,0 +1,36 @@
+<%= form_for :app_details_search_path, method: :get do |f| %>
+<p>
+	<%= f.label "Search for" %>
+	<%= text_field_tag :q, params[:q] %>
+	<%= submit_tag "Go", name: nil %>
+</p>
+<% end %>
+	<table class = "table-striped table-condensed table-bordered">
+		<thead>
+			<tr>
+				<th colspan="1"></th>
+				<th>Name</th>
+				<th>Json Attribute</th>
+				<th>Operator</th>
+				<th>Value</th>
+				<th>Color</th>
+			</tr>
+		</thead>
+
+		<tbody>
+<% @application_details.each do |application_detail| %>
+
+	
+	<tr>
+		<td><%= link_to "show", controller: "application_details", action: "show", id: application_detail.id%></td>
+		<td><%= application_detail.name %></td>
+		<td><%= application_detail.environment %></td>
+		<td><%= application_detail.rest_method %></td>
+		<td><%= application_detail.uri %></td>
+		<td><%= application_detail.request_hdr %></td>
+		<td><%= application_detail.request_text %></td>
+	</tr>
+<% end %>
+</table>
+
+<br>

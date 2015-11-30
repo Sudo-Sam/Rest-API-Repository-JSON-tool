@@ -90,7 +90,13 @@ class ApplicationDetailsController < HomeController
       format.json { head :no_content }
     end
   end
-
+  def search
+    if params[:q].nil?
+      @application_detail = []
+    else
+      @application_detail = ApplicationDetail.search params[:q]
+    end
+  end
   private
 
   # Use callbacks to share common setup or constraints between actions.
