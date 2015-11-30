@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get '/home/test' => redirect("http://localhost:3001/")
   get '/JSON_PORTAL/list' => "application_details#index"
+  get '/rules_engine/search/' => "rules_engines#search" , as: :rules_engines_search_path 
   get '/JSON_PORTAL/create' => "app_setup#create"
   get '/JSON_PORTAL/RestAPI' => "app_setup#create"
   get '/JSON_PORTAL/format' => "home#index"

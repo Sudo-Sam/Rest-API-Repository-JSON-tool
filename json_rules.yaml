@@ -19,3 +19,9 @@ rules:
     condition: (attr = ".object_or_array") and (value = "object")
     priority: 0
     action: color = "FF00FF0"
+  -
+    name : 4
+    condition: (attr = ".ip") and (value = "106.51.142.109")
+    priority: 0
+    action: color = "#70f047"   
+     

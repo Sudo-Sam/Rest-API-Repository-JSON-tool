@@ -32,7 +32,7 @@
 <div class="row form-group">
 	<%= link_to 'Edit' ,edit_rules_engine_path(@rules_engine) , class: "control-group btn btn-primary" %>
 	<%= link_to "Delete" , @rules_engine , method: :delete, data: { confirm: 'Are you sure?'} , class: "control-group btn btn-danger"  %>
-	<%= link_to 'Back', rules_engine_path, class: "control-group btn btn-info" %>
+	<%= link_to 'Back', '/rules_engines/', format: "html",  class: "control-group btn btn-info" %>
 </div>
 <script>
 	$(':input:checked').parent().addClass('active');

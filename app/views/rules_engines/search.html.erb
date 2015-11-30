@@ -1,0 +1,43 @@
+<%= form_for :rules_engines_search_path, method: :get do |f| %>
+<p>
+	<%= f.label "Search for" %>
+	<%= text_field_tag :q, params[:q] %>
+	<%= submit_tag "Go", name: nil %>
+</p>
+<% end %>
+	<table class = "table-striped table-condensed table-bordered">
+		<thead>
+			<tr>
+				<th colspan="1"></th>
+				<th>Name</th>
+				<th>Json Attribute</th>
+				<th>Operator</th>
+				<th>Value</th>
+				<th>Color</th>
+			</tr>
+		</thead>
+
+		<tbody>
+<% @rules_engines.each do |rules_engine| %>
+
+	
+	<tr>
+		<td><%= link_to "show", controller: "rules_engines", action: "show", id: rules_engine.id%></td>
+		<td><%= rules_engine.name %></td>
+		<td><%= rules_engine.json_attribute %></td>
+		<td><%= rules_engine.operator %></td>
+		<td><%= rules_engine.value %></td>
+		<td><%= rules_engine.color %></td>
+	</tr>
+<% end %>
+</table>
+
+<ul>
+	<% @rules_engines.each do |article| %>
+	<li>
+		<h3> <%= link_to article.name, controller: "rules_engines", action: "show", id: article.id%> </h3>
+	</li>
+	<% end %>
+</ul>
+
+<br>

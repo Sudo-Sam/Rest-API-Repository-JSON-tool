@@ -1,6 +1,5 @@
 class RulesEnginesController < ApplicationController
   before_action :set_rules_engine, only: [:show, :edit, :update, :destroy]
-
   # GET /rules_engines
   # GET /rules_engines.json
   def index
@@ -60,15 +59,24 @@ class RulesEnginesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def search
+    if params[:q].nil?
+      @rules_engines = []
+    else
+      @rules_engines = RulesEngine.search params[:q]
+    end
+  end
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rules_engine
-      @rules_engine = RulesEngine.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def rules_engine_params
-      params.require(:rules_engine).permit(:name, :json_attribute, :operator, :value, :color)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rules_engine
+    @rules_engine = RulesEngine.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def rules_engine_params
+    params.require(:rules_engine).permit(:name, :json_attribute, :operator, :value, :color)
+  end
+
+
 end
