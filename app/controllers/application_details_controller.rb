@@ -92,9 +92,9 @@ class ApplicationDetailsController < HomeController
   end
   def search
     if params[:q].nil?
-      @application_detail = []
+      @application_details = []
     else
-      @application_detail = ApplicationDetail.search params[:q]
+      @application_details = ApplicationDetail.search params[:q]
     end
   end
   private

@@ -1,7 +1,7 @@
 <%= form_for :app_details_search_path, method: :get do |f| %>
 <p>
-	<%= f.label "Search for" %>
-	<%= text_field_tag :q, params[:q] %>
+	<span class="label label-default col-md-2 fa-lg">Search for URI <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+	<%= text_field :q, params[:q] %>
 	<%= submit_tag "Go", name: nil %>
 </p>
 <% end %>
@@ -10,10 +10,11 @@
 			<tr>
 				<th colspan="1"></th>
 				<th>Name</th>
-				<th>Json Attribute</th>
-				<th>Operator</th>
-				<th>Value</th>
-				<th>Color</th>
+				<th>Environment</th>
+				<th>Rest method</th>
+				<th>Uri</th>
+				<th>Request hdr</th>
+				<th>Request text</th>
 			</tr>
 		</thead>
 

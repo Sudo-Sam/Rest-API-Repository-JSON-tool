@@ -1,6 +1,6 @@
 <%= form_for :rules_engines_search_path, method: :get do |f| %>
 <p>
-	<%= f.label "Search for" %>
+	<span class="label label-default col-md-2 fa-lg">Search for Rule <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
 	<%= text_field_tag :q, params[:q] %>
 	<%= submit_tag "Go", name: nil %>
 </p>
