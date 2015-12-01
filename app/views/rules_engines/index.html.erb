@@ -1,7 +1,5 @@
-<p id="notice">
-	<%= notice %>
-</p>
-
+<%= button_to_with_icon("Export Rules <i class='fa fa-lg' id='process_tag'></i></i>", {:controller => "home", :action => "json_to_html" }, class: "btn btn-primary btn-lg", id: "process_button", remote: true) %></td>
+<br>
 <div id = "index_div">
 	<table class = "table-striped table-condensed table-bordered">
 		<thead>

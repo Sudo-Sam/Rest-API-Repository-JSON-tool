@@ -1,7 +1,7 @@
 require 'strscan'
 require 'set'
 
-module Rein
+module Rule_Library
 
 class DefaultComparisonSupport
 	EQUAL            = :'equal?'

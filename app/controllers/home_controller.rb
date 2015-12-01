@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     @hash = JSON.parse(params[:json])
     logger.info params[:app_name]
     @html = ''
-    @error_table = '<table class="table-striped header-fixed">'
+    @error_table = '<table class="table table-striped table-bordered header-fixed">'
     @div = ""
     @error_table, @html, new_line = process_json(@error_table, @html, @div, @hash)
     @html << '</table>'
@@ -92,7 +92,7 @@ class Json_attribute
   def initialize (attr, value)
     @attr = attr
     @value = value
-    @rule = Rein::RuleEngine.new 'json_rules.yaml'
+    @rule = Rule_Library::RuleEngine.new 'json_rules.yaml'
     @color="FFFFFF"
     self.run_rule
   end 

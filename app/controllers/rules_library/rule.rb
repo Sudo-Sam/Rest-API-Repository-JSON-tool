@@ -1,4 +1,4 @@
-module Rein
+module Rule_Library
 
 class Rule
 	attr_accessor :name, :condition, :action, :priority

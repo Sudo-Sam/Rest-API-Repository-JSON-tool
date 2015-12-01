@@ -1,4 +1,4 @@
-module Rein
+module Rule_Library
 
 class ConflictResolver
 	def resolve( rules )

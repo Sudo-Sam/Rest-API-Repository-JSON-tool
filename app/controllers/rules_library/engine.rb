@@ -1,6 +1,6 @@
 require 'yaml'
 
-module Rein
+module Rule_Library
 
 class RuleEngine
 	attr_accessor :rules, :conflict_resolver, :operators

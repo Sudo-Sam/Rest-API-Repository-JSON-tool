@@ -1,3 +1,8 @@
+require 'rules_library/qualifier'
+require 'rules_library/engine'
+require 'rules_library/conflict'
+require 'rules_library/rule'
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
