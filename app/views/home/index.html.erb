@@ -1,21 +1,16 @@
 <div id="main-container">
 	<a id="menu-toggler" href="#" class=""> <span></span> </a>
 	<div class="clearfix" id="main-content">
-		<div class="form-group">
-			<label for="comment">Paste your JSON below:</label>
-			<textarea class="form-control" rows="10" id="json"></textarea>
-		</div>
-
-		<td><%= button_to_with_icon("Process <i class='fa fa-lg' id='process_tag'></i></i>", {:controller => "home", :action => "json_to_html" }, class: "btn btn-danger btn-lg", id: "process_button", remote: true) %></td>
-
-		<div class = "panel panel-danger">
+		<div class = "panel panel-primary">
+			<h1 class = "panel-heading">Format JSON</h1>
+			<div class="form-group">
+				<label for="comment">Paste your JSON below:</label>
+				<textarea class="form-control" rows="10" id="json"></textarea>
+			</div>
+			<td><%= button_to_with_icon("Process <i class='fa fa-lg' id='process_tag'></i></i>", {:controller => "home", :action => "json_to_html" }, class: "btn btn-danger btn-lg", id: "process_button", remote: true) %></td>
 			<h1 class = "panel-heading">Validation rules failed</h1>
 			<div id= "error_table" class="table-responsive">
-
 			</div>
-		</div>
-
-		<div class = "panel panel-primary">
 			<h1 class = "panel-heading">Processed JSON</h1>
 			<div id= "time_div" class="panel table" style="height:100%; overflow: auto; position:relative;"></div>
 		</div>
