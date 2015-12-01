@@ -1,4 +1,4 @@
-module Rule_Library
+module RuleLibrary
 
 class Rule
 	attr_accessor :name, :condition, :action, :priority

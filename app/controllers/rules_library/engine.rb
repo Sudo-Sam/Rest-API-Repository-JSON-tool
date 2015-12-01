@@ -1,6 +1,6 @@
 require 'yaml'
 
-module Rule_Library
+module RuleLibrary
 
 class RuleEngine
 	attr_accessor :rules, :conflict_resolver, :operators

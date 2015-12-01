@@ -1,7 +1,7 @@
 require 'strscan'
 require 'set'
 
-module Rule_Library
+module RuleLibrary
 
 class DefaultComparisonSupport
 	EQUAL            = :'equal?'

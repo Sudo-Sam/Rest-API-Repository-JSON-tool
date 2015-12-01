@@ -92,7 +92,7 @@ class Json_attribute
   def initialize (attr, value)
     @attr = attr
     @value = value
-    @rule = Rule_Library::RuleEngine.new 'json_rules.yaml'
+    @rule = RuleLibrary::RuleEngine.new 'json_rules.yaml'
     @color="FFFFFF"
     self.run_rule
   end 
