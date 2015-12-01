@@ -1,10 +1,16 @@
 <%= form_for :app_details_search_path, method: :get do |f| %>
-<p>
-	<span class="label label-default col-md-2 fa-lg">Search for URI <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
-	<%= text_field :q, params[:q] %>
-	<%= submit_tag "Go", name: nil %>
-</p>
-<% end %>
+<div class = "panel panel-default">
+	<h1 class = "panel-heading">Search for REST API</h1>
+
+	<div class = "row container ">
+		<div class="form-group col-md-6">
+			<%= text_field_tag :q, params[:q], :class => "form-control col-md-5" %>
+		</div>
+		<%= button_tag(type: 'submit', class: "btn btn-primary fa-md") do %>
+		<i class="icon-ok icon-white fa fa-search"></i>
+		<% end %>
+	</div>
+	<% end %>
 	<table class = "table-striped table-condensed table-bordered">
 		<thead>
 			<tr>
