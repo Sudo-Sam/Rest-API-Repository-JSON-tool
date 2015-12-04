@@ -1,88 +1,93 @@
-<div class = "container container-fluid">
-	<div class = "row" id="div1">
-		<div class="form-group col-md-3">
-			<input id= "app_name" type="text" class="form-control" placeholder="Application Name">
-		</div>
-	</div>
-	<p></p>
-	<div class = "row container" id="div2">
-		<span class="label label-default  col-md-2 fa-lg">Environment <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-1'></i></span>
-		<div class = "form-group col-md-5">
-			<div class="container container-fluid btn-group" data-toggle="buttons">
-				<label class="btn btn-primary active">
-					<input type="radio" name="environment" id="option1" value = "PROD" autocomplete="off" checked>
-					PROD </label>
-				<label class="btn btn-primary">
-					<input type="radio" name="environment" id="option2" value = "STAGE" autocomplete="off">
-					STAGE </label>
-				<label class="btn btn-primary">
-					<input type="radio" name="environment" id="option3" value = "EBF" autocomplete="off">
-					EBF </label>
+<div class = "panel panel-primary">
+	<h1 class = "panel-heading" id="header_label">Setup new Rest URI</h1>
+	<div class = "container-fluid">
+		<div class = "row" id="div1">
+			<div class="form-group col-md-3">
+				<input id= "app_name" type="text" class="form-control" placeholder="Application Name">
 			</div>
 		</div>
-	</div>
-	<p></p>
-	<div class = "row container">
-		<span class="label label-default col-md-2 fa-lg">Method <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
-		<div class="form-group col-md-2">
-			<div class="container container-fluid btn-group" data-toggle="buttons">
-				<label class="btn btn-info active">
-					<input type="radio" name="rest_method" id="option1" value = "GET" autocomplete="off" checked>
-					GET </label>
-				<label class="btn btn-info">
-					<input type="radio" name="rest_method" id="option2" value = "POST" autocomplete="off">
-					POST </label>
-				<label class="btn btn-info">
-					<input type="radio" name="rest_method" id="option3" value = "PUT" autocomplete="off">
-					PUT </label>
-				<label class="btn btn-info">
-					<input type="radio" name="rest_method" id="option4" value = "DELETE" autocomplete="off">
-					DELETE </label>
-			</div>
-		</div>
-	</div>
-
-	<div class="container" >
-		<div class="form-group">
-			<input id = "uri" type="textarea" class="form-control" placeholder="URI">
-		</div>
-		<div>
-			<div class = "row">
-				<div class = "col-md-6">
-					<textarea id = "req_hdr" type = "textarea" class="col-md-5 form-control" rows="10" id="req-headers" placeholder="Request Headers"></textarea>
-				</div><div class = "col-md-1"></div>
-				<div class = "col-md-6">
-					<textarea id = "req_json" class="col-md-5 form-control" rows="10" id="req-json" placeholder="Request JSON"></textarea>
+		<p></p>
+		<div class = "row container" id="div2">
+			<span class="label label-default  col-md-2 fa-lg">Environment <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-1'></i></span>
+			<div class = "form-group col-md-5">
+				<div class="container container-fluid btn-group" data-toggle="buttons">
+					<label class="btn btn-primary active">
+						<input type="radio" name="environment" id="option1" value = "PROD" autocomplete="off" checked>
+						PROD </label>
+					<label class="btn btn-primary">
+						<input type="radio" name="environment" id="option2" value = "STAGE" autocomplete="off">
+						STAGE </label>
+					<label class="btn btn-primary">
+						<input type="radio" name="environment" id="option3" value = "EBF" autocomplete="off">
+						EBF </label>
 				</div>
-			</div><div class = "col-md-1"></div>
+			</div>
 		</div>
-	</div>
-	<p></p>
-	<div class = "row">
-		<div class = "col-md-3"></div>
-		<%= button_to_with_icon("<i class='fa fa-binoculars fa-lg'></i> TEST", {:controller => "app_setup", :action => "test_Conn" }, class: "btn btn-info col-md-1 control-group", id: "test_button", remote: true) %> <div class = "col-md-3"></div>
-		<%= button_to_with_icon("SAVE <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i>" , {:controller => "app_setup",  :action => "save_record" }, class: "btn btn-primary col-md-1 control-group", id: "save_button", remote: true) %>
-	</div>
-
-	<div class = "panel panel-danger" id= "rules_failed">
-		<h1 class = "panel-heading">Validation rules failed</h1>
-		<div id= "error_table" class="table-responsive">
-
+		<p></p>
+		<div class = "row container">
+			<span class="label label-default col-md-2 fa-lg">Method <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+			<div class="form-group col-md-2">
+				<div class="container container-fluid btn-group" data-toggle="buttons">
+					<label class="btn btn-info active">
+						<input type="radio" name="rest_method" id="option1" value = "GET" autocomplete="off" checked>
+						GET </label>
+					<label class="btn btn-info">
+						<input type="radio" name="rest_method" id="option2" value = "POST" autocomplete="off">
+						POST </label>
+					<label class="btn btn-info">
+						<input type="radio" name="rest_method" id="option3" value = "PUT" autocomplete="off">
+						PUT </label>
+					<label class="btn btn-info">
+						<input type="radio" name="rest_method" id="option4" value = "DELETE" autocomplete="off">
+						DELETE </label>
+				</div>
+			</div>
 		</div>
-	</div>
-	<div class = "panel panel-primary" id= "result_table" >
-		<h1 class = "panel-heading">Result</h1>
-		<div id= "time_div" class="panel table" style="height:100%; overflow: auto; position:relative;"></div>
-	</div>
 
+		<div class="container-fluid" >
+			<div class="form-group">
+				<input id = "uri" type="textarea" class="form-control" placeholder="URI">
+			</div>
+			<div>
+				<div class = "row">
+					<div class = "col-md-6">
+						<textarea id = "req_hdr" type = "textarea" class="col-md-5 form-control" rows="10" id="req-headers" placeholder="Request Headers"></textarea>
+					</div><div class = "col-md-1"></div>
+					<div class = "col-md-6">
+						<textarea id = "req_json" class="col-md-5 form-control" rows="10" id="req-json" placeholder="Request JSON"></textarea>
+					</div>
+				</div><div class = "col-md-1"></div>
+			</div>
+		</div>
+		<p></p>
+		<div class = "row">
+			<div class = "col-md-3"></div>
+			<%= button_to_with_icon("<i class='fa fa-binoculars fa-lg'></i> TEST", {:controller => "app_setup", :action => "test_Conn" }, class: "btn btn-info col-md-1 control-group", id: "test_button", remote: true) %> <div class = "col-md-3"></div>
+			<%= button_to_with_icon("SAVE <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i>" , {:controller => "app_setup",  :action => "save_record" }, class: "btn btn-primary col-md-1 control-group", id: "save_button", remote: true) %>
+		</div>
+
+		<div class = "panel panel-danger" id= "rules_failed">
+			<h1 class = "panel-heading">Validation rules failed</h1>
+			<div id= "error_table" class="table-responsive">
+
+			</div>
+		</div>
+		<div class = "panel panel-primary" id= "result_table" >
+			<h1 class = "panel-heading">Result</h1>
+			<div id= "time_div" class="panel table" style="height:100%; overflow: auto; position:relative;"></div>
+		</div>
+
+	</div>
+	<script>
+		$('#result_table').hide();
+		$('#rules_failed').hide();
+		if (window.location.pathname == "/JSON_PORTAL/RestAPI/") {
+			$('#save_button').hide();
+			$('#div1').hide();
+			$('#div2').hide();
+			$('#test_button').html("<i class='fa fa-paper-plane fa-lg'></i> Send");
+			$('#header_label').html("Rest API");
+		};
+	</script>
+	<br>
 </div>
-<script>
-	$('#result_table').hide();
-	$('#rules_failed').hide();
-	if (window.location.pathname == "/JSON_PORTAL/RestAPI/") {
-		$('#save_button').hide();
-		$('#div1').hide();
-		$('#div2').hide();
-		$('#test_button').html("<i class='fa fa-paper-plane fa-lg'></i> Send");
-	};
-</script>
