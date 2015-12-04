@@ -16,8 +16,17 @@
  *= require font-awesome
  *= require bootstrap-colorpicker
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
 
 $font-family-sans-serif: Calibri !default;
+
+body {
+  padding-top: 70px; 
+  font: 100% Trebuchet MS, sans-serif;
+  background-color: #afafaf;
+}
 
 /* Make it a marquee */
 .marquee {
@@ -71,8 +80,3 @@ $font-family-sans-serif: Calibri !default;
     margin: 2em auto;
 }
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
-
-body { padding-top: 70px; };

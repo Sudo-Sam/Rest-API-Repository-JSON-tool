@@ -1,5 +1,5 @@
 <%= form_for :rules_engines_search_path, method: :get do |f| %>
-<div class = "container panel panel-primary">
+<div class = "container panel panel-warning">
 	<h1 class = "panel-heading">Search for Rule</h1>
 
 	<div class = "row container ">
@@ -11,31 +11,35 @@
 		<% end %>
 	</div>
 	<% end %>
-	<table class = "table-striped table-condensed table-bordered">
-		<thead>
-			<tr>
-				<th colspan="1"></th>
-				<th>Name</th>
-				<th>Json Attribute</th>
-				<th>Operator</th>
-				<th>Value</th>
-				<th>Color</th>
-			</tr>
-		</thead>
+	<div>
 
-		<tbody>
-			<% @rules_engines.each do |rules_engine| %>
+		<table class = "table table-striped table-condensed table-bordered">
+			<thead>
+				<tr>
+					<th colspan="1"></th>
+					<th>Name</th>
+					<th>Json Attribute</th>
+					<th>Operator</th>
+					<th>Value</th>
+					<th>Color</th>
+				</tr>
+			</thead>
 
-			<tr>
-				<td><%= link_to "show", controller: "rules_engines", action: "show", id: rules_engine.id%></td>
-				<td><%= rules_engine.name %></td>
-				<td><%= rules_engine.json_attribute %></td>
-				<td><%= rules_engine.operator %></td>
-				<td><%= rules_engine.value %></td>
-				<td><%= rules_engine.color %></td>
-			</tr>
-			<% end %>
-	</table>
-	<br>
+			<tbody>
+				<% @rules_engines.each do |rules_engine| %>
+
+				<tr>
+					<td><%= link_to "show", controller: "rules_engines", action: "show", id: rules_engine.id%></td>
+					<td><%= rules_engine.name %></td>
+					<td><%= rules_engine.json_attribute %></td>
+					<td><%= rules_engine.operator %></td>
+					<td><%= rules_engine.value %></td>
+					<td><%= rules_engine.color %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<br>
+	</div>
 </div>
 
