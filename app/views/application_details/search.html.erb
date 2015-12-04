@@ -1,8 +1,7 @@
-<%= form_for :app_details_search_path, method: :get do |f| %>
-<div class = "panel panel-primary">
+<div class = "container panel panel-primary">
 	<h1 class = "panel-heading">Search for REST API</h1>
-
-	<div class = "row container ">
+	<%= form_for :app_details_search_path, method: :get do |f| %>
+	<div class = "row">
 		<div class="form-group col-md-6">
 			<%= text_field_tag :q, params[:q], :class => "form-control col-md-5" %>
 		</div>
@@ -11,33 +10,35 @@
 		<% end %>
 	</div>
 	<% end %>
-	<table class = "table-striped table-condensed table-bordered">
-		<thead>
-			<tr>
-				<th colspan="1"></th>
-				<th>Name</th>
-				<th>Environment</th>
-				<th>Rest method</th>
-				<th>Uri</th>
-				<th>Request hdr</th>
-				<th>Request text</th>
-			</tr>
-		</thead>
+	<div id= "time_div" class="panel table" style="height:100%; overflow: auto; position:relative;">
+		<table class = "table-striped table-condensed table-bordered">
+			<thead>
+				<tr>
+					<th colspan="1"></th>
+					<th>Name</th>
+					<th>Environment</th>
+					<th>Rest method</th>
+					<th>Uri</th>
+					<th>Request hdr</th>
+					<th>Request text</th>
+				</tr>
+			</thead>
 
-		<tbody>
-<% @application_details.each do |application_detail| %>
+			<tbody>
+				<% @application_details.each do |application_detail| %>
+				<tr>
+					<td><%= link_to "show", controller: "application_details", action: "show", id: application_detail.id%></td>
+					<td><%= application_detail.name %></td>
+					<td><%= application_detail.environment %></td>
+					<td><%= application_detail.rest_method %></td>
+					<td><%= application_detail.uri %></td>
+					<td><%= application_detail.request_hdr %></td>
+					<td><%= application_detail.request_text %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<br>
+</div>
 
-	
-	<tr>
-		<td><%= link_to "show", controller: "application_details", action: "show", id: application_detail.id%></td>
-		<td><%= application_detail.name %></td>
-		<td><%= application_detail.environment %></td>
-		<td><%= application_detail.rest_method %></td>
-		<td><%= application_detail.uri %></td>
-		<td><%= application_detail.request_hdr %></td>
-		<td><%= application_detail.request_text %></td>
-	</tr>
-<% end %>
-</table>
-
-<br>

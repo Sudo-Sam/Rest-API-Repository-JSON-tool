@@ -1,5 +1,11 @@
+<div class = "container panel panel-primary">
+	<h1 class = "panel-heading">Edit Rule</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @rules_engine %> |
-<%= link_to 'Back', rules_engines_path %>
+<br>
+<div class = "container">
+<%= link_to 'Show', @rules_engine , :class => "btn btn-warning control-group" %>  
+<%= link_to 'Back', rules_engines_path, :class => "btn btn-info control-group" %>
+</div>
+<br>
+</div>

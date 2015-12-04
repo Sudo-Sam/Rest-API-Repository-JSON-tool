@@ -1,65 +1,71 @@
-<%= form_for(@application_detail) do |f| %>
-<div class = "container container-fluid">
-	<div class = "row">
-		<span class="label label-default col-md-2 fa-lg">Name <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
-		<div class="form-group col-md-3" disabled>
-			<%= f.text_field :name, :class => "form-control col-md-3", disabled: true %>
-		</div>
-	</div>
-	<div class = "row">
-		<span class="label label-default col-md-2 fa-lg">Environment <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
-		<div class="form-group col-md-2">
-			<div class="container container-fluid btn-group" data-toggle="buttons">
-				<label class="btn btn-primary"> <%= radio_button("application_detail","environment","PROD") %>
-					PROD </label>
-				<label class="btn btn-primary"> <%= radio_button("application_detail","environment","STAGE") %>
-					STAGE </label>
-				<label class="btn btn-primary"> <%= radio_button("application_detail","environment","EBF") %>
-					EBF </label>
+<div class = "container panel panel-primary">
+	<h1 class = "panel-heading">REST API details</h1>
+	<%= form_for(@application_detail) do |f| %>
+	<div class = "container container-fluid">
+		<div class = "row">
+			<span class="label label-default col-md-2 fa-lg">Name <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+			<div class="form-group col-md-3" disabled>
+				<%= f.text_field :name, :class => "form-control col-md-3", disabled: true %>
 			</div>
 		</div>
-	</div>
-	<div class = "row">
-		<span class="label label-default col-md-2 fa-lg">Method <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
-		<div class="form-group col-md-2">
-			<div class="container container-fluid btn-group" data-toggle="buttons">
-				<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","GET") %>
-					GET </label>
-				<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","PUT") %>
-					PUT </label>
-				<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","POST") %>
-					POST </label>
-				<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","DELETE") %>
-					DELETE </label>
+		<div class = "row">
+			<span class="label label-default col-md-2 fa-lg">Environment <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+			<div class="form-group col-md-2">
+				<div class="container container-fluid btn-group" data-toggle="buttons">
+					<label class="btn btn-primary"> <%= radio_button("application_detail","environment","PROD") %>
+						PROD </label>
+					<label class="btn btn-primary"> <%= radio_button("application_detail","environment","STAGE") %>
+						STAGE </label>
+					<label class="btn btn-primary"> <%= radio_button("application_detail","environment","EBF") %>
+						EBF </label>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<span class="label label-default col-md-2 fa-lg">URI <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
-		<div class="form-group col-md-10">
-			<%= f.text_area :uri, :class => "form-control", :rows=>1 , disabled: true%>
+		<div class = "row">
+			<span class="label label-default col-md-2 fa-lg">Method <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+			<div class="form-group col-md-2">
+				<div class="container container-fluid btn-group" data-toggle="buttons">
+					<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","GET") %>
+						GET </label>
+					<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","PUT") %>
+						PUT </label>
+					<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","POST") %>
+						POST </label>
+					<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","DELETE") %>
+						DELETE </label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<span class="label label-default col-md-2 fa-lg">URI <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+			<div class="form-group col-md-10">
+				<%= f.text_area :uri, :class => "form-control", :rows=>1 , disabled: true%>
+			</div>
+		</div>
+		<div class="row form-group">
+			<span class="label label-default col-md-2 fa-lg">Header <i class='fa fa-chevron-down fa-lg'></i><i class='fa fa-chevron-down fa-5'></i></span>
+			<span class= "col-md-4"></span>
+			<span class="label label-default col-md-2 fa-lg">Request JSON <i class='fa fa-chevron-down fa-lg'></i><i class='fa fa-chevron-down fa-5'></i></span>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+				<%= f.text_area :request_hdr , :class =>"form-control col-md-5" , :rows=>10 , disabled: true%>
+			</div>
+			<div class="form-group col-md-6">
+				<%= f.text_area :request_text , :class =>"form-control col-md-5" , :rows=>10 , disabled: true%>
+			</div>
+		</div>
+		<div class="row form-group">
+			<%= link_to 'Edit' ,edit_application_detail_path(@application_detail) , class: "control-group btn btn-primary" %>
+			<%= link_to "Delete" , @application_detail , method: :delete, data: { confirm: 'Are you sure?'} , class: "control-group btn btn-danger"  %>
+			<%= link_to 'Back', application_details_path, class: "control-group btn btn-info" %>
 		</div>
 	</div>
-	<div class="row form-group">
-		<span class="label label-default col-md-2 fa-lg">Header <i class='fa fa-chevron-down fa-lg'></i><i class='fa fa-chevron-down fa-5'></i></span>
-		<span class= "col-md-4"></span>
-		<span class="label label-default col-md-2 fa-lg">Request JSON <i class='fa fa-chevron-down fa-lg'></i><i class='fa fa-chevron-down fa-5'></i></span>
-	</div>
-	<div class="row">
-		<div class="form-group col-md-6">
-			<%= f.text_area :request_hdr , :class =>"form-control col-md-5" , :rows=>10 , disabled: true%>
-		</div>
-		<div class="form-group col-md-6">
-			<%= f.text_area :request_text , :class =>"form-control col-md-5" , :rows=>10 , disabled: true%>
-		</div>
-	</div>
-<div class="row form-group">
-<%= link_to 'Edit' ,edit_application_detail_path(@application_detail) , class: "control-group btn btn-primary" %> 
-<%= link_to "Delete" , @application_detail , method: :delete, data: { confirm: 'Are you sure?'} , class: "control-group btn btn-danger"  %> 
-<%= link_to 'Back', application_details_path, class: "control-group btn btn-info" %>
-</div>
-<script>	
-	$(':input:checked').parent().addClass('active');
-	$(':input:checked').css({'color': 'red', 'font-size': '150%' });	
-</script>
-<% end %>
+	<script>
+		$(':input:checked').parent().addClass('active');
+		$(':input:checked').css({
+			'color' : 'red',
+			'font-size' : '150%'
+		});
+	</script>
+	<% end %>

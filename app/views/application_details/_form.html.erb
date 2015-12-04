@@ -11,7 +11,7 @@
 	</ul>
 </div>
 <% end %>
-<div class = "container container-fluid">
+<div class = "form-group">
 	<div class = "row">
 		<span class="label label-default col-md-2 fa-lg">Name <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
 		<div class="form-group col-md-3">
@@ -19,8 +19,8 @@
 		</div>
 	</div>
 	<div class = "row">
-		<span class="label label-default col-md-2 fa-lg">Environment <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
-		<div class="form-group col-md-2">
+		<span class="contrainer label label-default col-md-2 fa-lg">Environment <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+		<div class="contrainer form-group col-md-2">
 			<div class="container container-fluid btn-group" data-toggle="buttons">
 				<label class="btn btn-primary"> <%= radio_button("application_detail","environment","PROD") %>
 					PROD </label>
@@ -32,8 +32,8 @@
 		</div>
 	</div>
 	<div class = "row">
-		<span class="label label-default col-md-2 fa-lg">Method <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
-		<div class="form-group col-md-2">
+		<span class="contrainer label label-default col-md-2 fa-lg">Method <i class='fa fa-chevron-right fa-lg'></i><i class='fa fa-chevron-right fa-5'></i></span>
+		<div class="contrainer form-group col-md-2">
 			<div class="container container-fluid btn-group" data-toggle="buttons">
 				<label class="btn btn-info"> <%= radio_button("application_detail","rest_method","GET") %>
 					GET </label>
@@ -57,7 +57,7 @@
 		<span class= "col-md-4"></span>
 		<span class="label label-default col-md-2 fa-lg">Request JSON <i class='fa fa-chevron-down fa-lg'></i><i class='fa fa-chevron-down fa-5'></i></span>
 	</div>
-	<div class="row">
+	<div class=" row">
 		<div class="form-group col-md-6">
 			<%= f.text_area :request_hdr , :class =>"form-control col-md-5" , :rows=>10 %>
 		</div>
@@ -69,7 +69,6 @@
 	<%= button_tag(type: 'submit', class: "btn btn-primary control-group") do %>
 	<i class="icon-ok icon-white fa fa-save fa-lg "></i> Save
 	<% end %>
-</div>
 </div>
 <script>	$(':input:checked').parent().addClass('active');</script>
 <% end %>

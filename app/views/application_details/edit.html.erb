@@ -1,4 +1,13 @@
-<%= render 'form' %>
+<div class = "container panel panel-primary">
+	<h1 class = "panel-heading">Edit REST API</h1>
 
-<%= link_to 'Show', @application_detail %> |
-<%= link_to 'Back', application_details_path %>
+<%= render 'form' %>
+<br>
+<div class = "container">
+<%= link_to 'Show', @application_detail , :class => "btn btn-warning control-group" %>  
+<%= link_to 'Back', application_details_path, :class => "btn btn-info control-group" %>
+
+</div>
+<br>
+</div>
+

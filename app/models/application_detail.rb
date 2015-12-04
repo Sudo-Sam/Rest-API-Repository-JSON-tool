@@ -5,6 +5,9 @@ class ApplicationDetail < ActiveRecord::Base
     mappings dynamic: 'false' do
       indexes :name, analyzer: 'english'
       indexes :uri, analyzer: 'english'
+      indexes :request_hdr, analyzer: 'english'
+      indexes :request_text, analyzer: 'english'
+      indexes :environment, analyzer: 'english'
     end
   end
 end

@@ -1,33 +1,39 @@
-<%= button_to_with_icon("Export Rules <i class='fa fa-lg' id='process_tag'></i></i>", {:controller => "home", :action => "json_to_html" }, class: "btn btn-primary btn-lg", id: "process_button", remote: true) %></td>
-<br>
-<div id = "index_div">
-	<table class = "table-striped table-condensed table-bordered">
-		<thead>
-			<tr>
-				<th colspan="2"></th>
-				<th>Name</th>
-				<th>Json Attribute</th>
-				<th>Operator</th>
-				<th>Value</th>
-				<th>Color</th>
-				<th colspan="1"></th>
-			</tr>
-		</thead>
+<div class = "container panel panel-primary">
+	<h1 class = "panel-heading">Rules for JSON</h1>
+	<div class = "container-fluid">
+		<%= button_to_with_icon("Export Rules <i class='fa fa-lg' id='process_tag'></i></i>", {:controller => "home", :action => "json_to_html" }, class: "btn btn-warning btn-lg pull-right", id: "process_button", remote: true) %></td>
+		<br>
+	</div>
+	<div id = "index_div">
+		<br />
+		<table class = "table-striped table-condensed table-bordered">
+			<thead>
+				<tr>
+					<th colspan="2"></th>
+					<th>Name</th>
+					<th>Json Attribute</th>
+					<th>Operator</th>
+					<th>Value</th>
+					<th>Color</th>
+					<th colspan="1"></th>
+				</tr>
+			</thead>
 
-		<tbody>
-			<% @rules_engines.each do |rules_engine| %>
-			<tr>
-				<td><%= link_to 'Show', rules_engine %></td>
-				<td><%= link_to 'Edit', edit_rules_engine_path(rules_engine) %></td>
-				<td><%= rules_engine.name %></td>
-				<td><%= rules_engine.json_attribute %></td>
-				<td><%= rules_engine.operator %></td>
-				<td><%= rules_engine.value %></td>
-				<td><%= rules_engine.color %></td>
-				<td><%= link_to 'Destroy', rules_engine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+			<tbody>
+				<% @rules_engines.each do |rules_engine| %>
+				<tr>
+					<td><%= link_to 'Show', rules_engine %></td>
+					<td><%= link_to 'Edit', edit_rules_engine_path(rules_engine) %></td>
+					<td><%= rules_engine.name %></td>
+					<td><%= rules_engine.json_attribute %></td>
+					<td><%= rules_engine.operator %></td>
+					<td><%= rules_engine.value %></td>
+					<td><%= rules_engine.color %></td>
+					<td><%= link_to 'Destroy', rules_engine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 </div>
 
