@@ -1,0 +1,21 @@
+var1 = $("#json").val();
+$("#process_tag").addClass('fa-cog fa-spin');
+var2 = $("#application option:selected").text();
+res = "";
+$("#time_div").html("");
+var request = $.ajax({
+url: '/rules_engines/export_rule_backend',
+type: 'post',
+data: $.param({ json: var1, app_name: var2 }),
+success: function(jsonResponse){
+$("#process_tag").removeClass('fa-cog fa-spin');
+if(jsonResponse.status == "200"){
+alert ('Rules Exported Successfully');
+}},
+error: function(jsonResponse){
+$("#process_tag").removeClass('fa-cog fa-spin');
+alert ('Error exporting rules. Please check logs');
+}
+
+});
+

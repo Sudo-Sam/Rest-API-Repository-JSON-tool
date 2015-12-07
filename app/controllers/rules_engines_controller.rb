@@ -1,3 +1,5 @@
+require 'yaml/store'
+
 class RulesEnginesController < ApplicationController
   before_action :set_rules_engine, only: [:show, :edit, :update, :destroy]
   # GET /rules_engines
@@ -59,11 +61,38 @@ class RulesEnginesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   def search
     if params[:q].nil?
       @rules_engines = []
     else
       @rules_engines = RulesEngine.search params[:q]
+    end
+  end
+
+  def export_rules
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def export_rule_backend
+    time = Time.now.getutc.to_i
+    rules =[]
+    puts time
+    FileUtils.mv('./json_rules.yaml', './rules_backup/json_rules.yaml.'+time.to_s)
+    rule = Struct.new :name, :condition, :priority, :action
+    @rules_engine = RulesEngine.all
+    @rules_engine.each do |v_rule|
+      rules << rule.new(v_rule.name.to_s,"(attr = \""+v_rule.json_attribute.to_s+'") and (value '+ v_rule.operator.to_s+' "'+v_rule.value.to_s+'")',0,"color= \""+ v_rule.color.to_s+'"')
+    end
+    store_rules = YAML::Store.new "json_rules.yaml"
+    store_rules.transaction do
+      store_rules["rules"] = rules
+    end
+
+    respond_to do |format|
+      format.json { render :json => {:status => "200", :html => "test", :error_table => "test"}.to_json }
     end
   end
   private
@@ -77,6 +106,5 @@ class RulesEnginesController < ApplicationController
   def rules_engine_params
     params.require(:rules_engine).permit(:name, :json_attribute, :operator, :value, :color)
   end
-
 
 end

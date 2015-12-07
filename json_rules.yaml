@@ -1,27 +1,12 @@
+
 rules:
-  -
-    name: 1
-    condition: (attr = ".payload.offerWrappers.offer.marketAttributes.pcp_seller_id.isMultiValued") and (value != "")
-    priority:  0
-    action: color = "AA00FF0"
-  -
-    name : 2
-    condition: (attr = ".payload.offerWrappers.storeFronts.isStorePUTEligible") and (value = "false")
-    priority: 0
-    action: color = "FF00FF0"
-  -
-    name : 3
-    condition: (attr = ".glossary.title") and (value != "")
-    priority: 0
-    action: color = "FF00FF0"
-  -
-    name : 4
-    condition: (attr = ".object_or_array") and (value = "object")
-    priority: 0
-    action: color = "FF00FF0"
-  -
-    name : test
-    condition: (attr = ".ip") and (value = "5")
-    priority: 0
-    action: color = "#70f047"   
-     
+- !ruby/struct
+  name: 1
+  condition: (attr = ".1") and (value = "1")
+  priority: 0
+  action: color= "#1a9fc0"
+- !ruby/struct
+  name: '2'
+  condition: (attr = "1") and (value =  "1")
+  priority: 0
+  action: color= "1345"

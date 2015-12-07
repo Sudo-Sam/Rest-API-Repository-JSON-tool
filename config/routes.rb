@@ -29,7 +29,11 @@ Rails.application.routes.draw do
   resources :home do
     post :to_html, on: :collection
   end
+  resources :rules_engines do
+    post :export_rule_backend, on: :collection
+  end  
   post '/home/json_to_html' => 'home#json_to_html', as: :json_to_html_path
+  post '/rules_engines/export_rules' => 'rules_engines#export_rules', as: :export_rules_path
   post '/app_setup/save_record' => 'app_setup#save_record', as: :save_app_setup_path
   post '/app_setup/test_Conn' => 'app_setup#test_Conn'
   post '/application_details/test_Conn' => "application_details#test_Conn", as: :test_conn_path

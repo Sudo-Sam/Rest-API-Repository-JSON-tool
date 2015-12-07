@@ -1,7 +1,7 @@
 <div class = "container panel panel-warning">
 	<h1 class = "panel-heading">Rules for JSON</h1>
 	<div class = "container-fluid">
-		<%= button_to_with_icon("Export Rules <i class='fa fa-lg fa-database' id='process_tag'></i></i>", {:controller => "home", :action => "json_to_html" }, class: "btn btn-warning btn-lg pull-right", id: "process_button", remote: true) %></td>
+		<%= button_to_with_icon("Export Rules <i class='fa fa-lg fa-database' id='process_tag'></i></i>", {:controller => "rules_engines", :action => "export_rules" }, class: "btn btn-warning btn-lg pull-right", id: "process_button", remote: true) %></td>
 		<br>
 	</div>
 	<div id = "index_div">
