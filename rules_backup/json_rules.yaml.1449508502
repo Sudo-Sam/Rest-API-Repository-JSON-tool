@@ -1,0 +1,12 @@
+
+rules:
+- !ruby/struct
+  name: 1
+  condition: (attr = ".1") and (value = "1")
+  priority: 0
+  action: color= "#1a9fc0"
+- !ruby/struct
+  name: '2'
+  condition: (attr = "1") and (value =  "1")
+  priority: 0
+  action: color= "1345"

@@ -25,16 +25,20 @@ class RulesEnginesController < ApplicationController
   # POST /rules_engines
   # POST /rules_engines.json
   def create
-    @rules_engine = RulesEngine.new(rules_engine_params)
-
-    respond_to do |format|
-      if @rules_engine.save
-        format.html { redirect_to @rules_engine, notice: 'Rules engine was successfully created.' }
-        format.json { render :show, status: :created, location: @rules_engine }
-      else
-        format.html { render :new }
-        format.json { render json: @rules_engine.errors, status: :unprocessable_entity }
+    if (rules_engine_params.has_key?(:name) && rules_engine_params.has_key?(:json_attribute) && rules_engine_params.has_key?(:operator) && rules_engine_params.has_key?(:value) && rules_engine_params.has_key?(:color))
+      @rules_engine = RulesEngine.new(rules_engine_params)
+      respond_to do |format|
+        if @rules_engine.save
+          format.html { redirect_to @rules_engine, notice: 'Rules engine was successfully created.' }
+          format.json { render :show, status: :created, location: @rules_engine }
+        else
+          format.html { render :new }
+          format.json { render json: @rules_engine.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      format.html { render :new }
+      format.json { render json: @rules_engine.errors, status: :unprocessable_entity }
     end
   end
 

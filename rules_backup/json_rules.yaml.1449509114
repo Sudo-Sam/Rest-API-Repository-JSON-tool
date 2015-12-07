@@ -2,9 +2,19 @@
 rules:
 - !ruby/struct
   name: '1'
-  condition: (attr = ".1") and (value = "1")
+  condition: (attr = "1") and (value = "1")
   priority: 0
   action: color= "#1a9fc0"
+- !ruby/struct
+  name: ''
+  condition: (attr = "") and (value  "")
+  priority: 0
+  action: color= ""
+- !ruby/struct
+  name: ''
+  condition: (attr = "") and (value  "")
+  priority: 0
+  action: color= ""
 - !ruby/struct
   name: Test
   condition: (attr = "./adad/aasasd") and (value = "#763131")
@@ -30,3 +40,13 @@ rules:
   condition: (attr = ".ip") and (value = "12345678")
   priority: 0
   action: color= "#1ef34a"
+- !ruby/struct
+  name: test
+  condition: (attr = "yahoo") and (value  "yahoo")
+  priority: 0
+  action: color= "#3acd1a"
+- !ruby/struct
+  name: Test
+  condition: (attr = ".ip") and (value  "10000")
+  priority: 0
+  action: color= "#ff0000"
